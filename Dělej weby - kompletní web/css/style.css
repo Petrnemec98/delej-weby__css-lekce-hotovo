@@ -288,137 +288,137 @@ footer img {
 /* Blog */
 
 .blogposts article{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Využíme pro pozicování Flexbox */
+    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
+    justify-content: center; /* Zarovná obsah do středu */
+    align-items: center; /* Zarovná obsah do středu */
 }
 
 .blogpost {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    display: flex; /* Využíme pro pozicování Flexbox */
+    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
+    gap: 32px; /* Mezera mezi prvky */
 }
 
 .perex {
-    font-weight: 600;
+    font-weight: 600; /* Tučné písmo pro nadpisy */
 }
 
 .blogpost__image{
-    width: 100%;
-    height: 250px;
+    width: 100%; /* Šířka obrázku 100% */
+    height: 250px; /* Výška obrázku */
 }
 
 .blogpost__order-1 {
-    order: 2;
+    order: 2; /* Pořadí obrázku */
 }
 
 .blogpost__order-2 {
-    order: 1;
+    order: 1; /* Pořadí textu */
 }
 
 @media (min-width: 1024px) {
     .blogpost {
-        flex-direction: row;
+        flex-direction: row; /* Srovná nám všechny prvky vedle sebe */
     }
     .blogpost--list{
-        justify-content: space-between;
-        width: 100%;
+        justify-content: space-between; /* Zarovná obsah do středu a mezi sebou */
+        width: 100%; /* Šířka obsahu 100% */
     }
 
     .blogpost--list .blogpost__content {
-        width: 100%;
+        width: 100%;/* Šířka obsahu 100% */
     }
 
     .blogpost__order-1 {
-        order: 1;
+        order: 1; /* Pořadí obrázku na počítači */
     }
     
     .blogpost__order-2 {
-        order: 2;
+        order: 2; /* Pořadí textu na počítači */
     }
 }
 
 /* Full screen img */
 .fullscreen__img{
-    height: 300px;
-    width: 100%;
+    height: 300px;/* Výška obrázku */
+    width: 100%; /* Šířka obrázku 100% */
 }
 
 /* Oddělující čára divider */
 .divider{
-    height: 1px;
-    width: 100%;
-    background-color: var(--color-secondary);
-    opacity: 50%;
-    margin: 2rem 0;
+    height: 1px; /* Výška čáry */
+    width: 100%; /* Šířka čáry 100% */
+    background-color: var(--color-secondary); /* Barva čáry */
+    opacity: 50%; /* Průhlednost čáry */
+    margin: 2rem 0; /* Odsazení čáry */
 }
 
 @media (min-width: 1024px) {
     .divider{
-        margin: 3rem 0;
+        margin: 3rem 0; /* Odsazení čáry na počítači */
     }
 }
 
 /* Seznam */
 ul li {
-    padding: 10px 0;
+    padding: 10px 0;/* Odsazení seznamu */
 
 }
 
 /* matezajem */
 .matezajem{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    display: flex; /* Využíme pro pozicování Flexbox */
+    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
+    align-items: center; /* Zarovná všechny prvky do středu */
+    text-align: center; /* Zarovná text do středu */
 }
 
 /* Fomulář */
 .formular {
-    display: flex;
-    align-items: center;
+    display: flex; /* Využíme pro pozicování Flexbox */
+    align-items: center; /* Zarovná všechny prvky do středu */
 }
 
 .formular iframe {
-    margin: auto;
-    max-height: 450px;
+    margin: auto;/* Zarovná formulář na střed */
+    max-height: 450px; /* Maximální výška formuláře */
 }
 
 /* Kontakt */
 #kontakt {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    align-items: center;
+    display: flex; /* Využíme pro pozicování Flexbox */
+    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
+    gap: 32px; /* Mezera mezi prvky */
+    align-items: center; /* Zarovná všechny prvky do středu */
 }
 
 .kontakt__text a {
-    color: var(--color-link);
-    text-decoration: none;
+    color: var(--color-link); /* Barva textu odkazu */
+    text-decoration: none; /* Odstraní podtržení textu */
 }
 
 .kontakt__text .subheader{
-    text-align: center;
+    text-align: center; /* Zarovná text do středu */
 }
 
 @media (min-width: 1024px) {
     #kontakt {
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: row; /* Srovná nám všechny prvky vedle sebe */
+        justify-content: space-between; /*  Zarovná obsah do středu a mezi sebou */
     }
     .kontakt__text h1,
     .kontakt__text .subheader{
-        text-align: left;
+        text-align: left; /* Zarovná text doleva */
     }
 }
 
 /* Mapa */
 .mapa {
-    width: 100%;
+    width: 100%; /* Šířka mapy 100% */
 }
 
 .mapa iframe {
-    width: 100%;
+    width: 100%; /* Šířka mapy 100% */
 }
 
