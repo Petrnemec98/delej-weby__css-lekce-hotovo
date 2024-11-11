@@ -4,17 +4,14 @@
 /* Fonty */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 
 /* Proměnné */
 :root {
     --color-primary: #FFFAFC; /* Bílá */
     --color-secondary: #222424; /* Černá */
     --color-link: #35C759; /* Zelená */
+    --color-gray: #BDBDBD; /* Šedá */
 }
 
 /* Typografie */
@@ -25,6 +22,10 @@ h1, h2, h3, p, span, a, .subheader, ul {
 h1, h2, h3 {
     font-weight: 800; /* Tučné písmo pro nadpisy */
     text-align: center; /* Zarovnání textu na střed */
+
+    /* Reset stylů, které normalize nezměnil*/
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 }
 
 h1 {
@@ -36,11 +37,19 @@ h2 {
 }
 
 h3 {
-    font-size: 1.8rem; /* Velikost nadpisu 3 */
+    font-size: 1.5rem; /* Velikost nadpisu 3 */
 }
 
-p, a, span, ul {
-    font-size: 1.2rem; /* Velikost textu */
+p, a, span {
+    font-size: 1rem; /* Velikost textu */
+}
+
+p.bold {
+    font-weight: 700; /* Tučné písmo pro text */
+}
+
+ul, li {
+    line-height: 150%;
 }
 
 .subheader{
@@ -48,377 +57,239 @@ p, a, span, ul {
     text-transform: uppercase; /* Převede text na velká písmena */
 }
 
-/* Kontejnery */
-.container {
+/* Sekce */
+.section,
+header,
+footer {
     padding: 0 20px; /* zhora/spoda 0, zleva/zprava 20px */
     display: flex; /* Využíme pro pozicování Flexbox */
     justify-content: center; /* Zarovná obsah do středu */
     flex-direction: column; /* Srovná nám všechny prvky pod sebe */
 }
 
-.container.light {
+.section--light {
     background-color: var(--color-primary); /* Barva pozadí */
     color: var(--color-secondary); /* Barva textu */
 }
 
-.container.dark {
+.section--dark {
     background-color: var(--color-secondary); /* Barva pozadí */
     color: var(--color-primary); /* Barva textu */
 }
 
-/* sekce */
-section {
-    margin: 30px auto; /* zhora/spoda 30px, zleva/zprava auto */
+.section--gray {
+    background-color: var(--color-gray); /* Barva pozadí */
+    color: var(--color-secondary); /* Barva textu */
 }
 
-section, header, footer {
-    max-width: 1240px; /* Maximální šířka obsahu */
-    width: 100%; /* Šířka obsahu 100% pokud je obsah užší než 1240px */
+.section--sticky {
+    position: sticky;
+    top: 0;
 }
 
-/* Hlavička */
-header {
-    margin: auto; /* Zarovná obsah na střed */
-    display: flex; /* Využíme pro pozicování Flexbox */
-    justify-content: space-between; /* Zarovná obsah do středu a mezi sebou */
-    align-items: center; /* Zarovná obsah do středu */
-    height: 114px; /* Výška hlavičky */
-}
+/* container */
 
-.header--sticky {
-    position: sticky; /* Přilepí hlavičku k hornímu okraji prohlížeče */
-    top: 0; /* Vzdálenost od horního okraje prohlížeče */
-    z-index: 10; /* Vrstva hlavičky nad obsahem */
+.container {
+    margin: 32px auto; /* Zarovná obsah do středu */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 1240px;
 }
-
-nav ul{
-    display: flex; /* Využíme pro pozicování Flexbox */
-    list-style: none; /* Odstraní odrážky u seznamu */
-    gap: 10px; /* Mezera mezi odkazy */   
-}
-
-nav a {
-    color: var(--color-secondary); /* Barva textu odkazu */
-    text-decoration: none; /* Odstraní podtržení textu */
-}
-
-.logo__img{
-    height: 50px; /* Výška loga */
-    width: auto; /* Automatická šířka loga */
-}
-
 @media (min-width: 1024px) {
-    nav ul {
-        gap: 30px; /* Mezera mezi odkazy na počítači */
-    }
-
-    .logo__img {
-        height: 90px; /* Výška loga na počítači */
+    .container{
+        margin: 64px auto; /* Zarovná obsah do středu */
+        gap: 32px;
     }
 }
 
-/* Patička */
-footer {
-    margin: auto; /* Zarovná obsah na střed */
-    height: 114px; /* Výška patičky */
-    display: flex; /*   Využíme pro pozicování Flexbox */
-    justify-content: center; /* Zarovná obsah do středu */
-    align-items: center; /* Zarovná obsah do středu */
-    gap: 20px; /* Mezera mezi odkazy */
-}
-
-footer img {
-    height: 40px; /* Výška log sociálních sítí */
-    width: auto;    /* Automatická šířka log sociálních sítí */
-}
-
-/* Co jsem se naučili */
-#cojsemsenaucil {
-    display: flex; /* Využíme pro pozicování Flexbox */
-    flex-direction: column; /*  Srovná nám všechny prvky pod sebe */
-    gap: 10px;/* Mezera mezi prvky */
-    align-items: center; /* Zarovná všechny prvky do středu */
-}
-
-#cojsemsenaucil ul {
-    display: flex; /* Využíme pro pozicování Flexbox */
-    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
-    gap: 10px; /* Mezera mezi prvky */
-    list-style: none; /* Odstraní odrážky u seznamu */
-}
-
-#cojsemsenaucil li {
-    display: flex; /*   Využíme pro pozicování Flexbox */
-    gap: 10px; /* Mezera mezi prvky */
-    align-items: center; /* Zarovná všechny prvky do středu */
-}
-
-#cojsemsenaucil img {
-    height: 40px; /* Výška symbolu */
-    width: auto; /* Automatická šířka symbolu */
-}
-
-@media (min-width: 1024px) {
-    #cojsemsenaucil {
-        flex-direction: row; /* Srovná nám všechny prvky vedle sebe */
-    }
-
-    #cojsemsenaucil ul {
-        flex-direction: row; /* Srovná nám všechny prvky vedle sebe */
-    }
-
-    #cojsemsenaucil li {
-        gap: 20px; /* Mezera mezi prvky na počítači */
-    }
-}
-
-/* Úvod */
-#uvod {
-    display: flex; /* Využíme pro pozicování Flexbox */
-    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
-    gap: 20px; /* Mezera mezi prvky */
-    align-items: center; /* Zarovná všechny prvky do středu */
-}
-
-#uvod__obrazek {
-    display: none; /* Skryje obrázek */
-    position: relative; /* Relativní pozicování */
-    width: 100%; /* Šířka obrázku 100% */
-}
-
-#uvod__obrazek img{
-    width: 100%; /* Šířka obrázku 100% */
-    height: 100%; /* Výška obrázku 100% */
-    object-fit: cover; /* Obrázek se přizpůsobí velikosti */
-}
-
-@media (min-width: 1024px) {
-    #uvod{
-        flex-direction: row; /* Srovná nám všechny prvky vedle sebe */
-        gap: 56px; /* Mezera mezi prvky na počítači */
-    }
-
-    #uvod h1 {
-        text-align: left; /* Zarovná nadpis doleva */
-        margin-bottom: 32px; /* Odsazení od dalšího prvku */
-    }
-
-    #uvod__obrazek {
-        display: block; /* Zobrazí obrázek */
-    }
-    .uvod__text{
-        width: 100%; /* Šířka textu 100% */
-    }
-
-}
-
-/* Dovednosti */
-.comumime {
-    display: flex; /* Využíme pro pozicování Flexbox */
-    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
-    gap: 10px; /* Mezera mezi prvky */
-}
-
-.dovednosti {
-    display: flex; /* Využíme pro pozicování Flexbox */
-    flex-direction: column; /* Srovná nám všechny prvky pod sebe v boxu se třídou .dovednosti = bíle boxy budou pod sebou */
-    gap: 32px; /* Mezera mezi bílými boxy */
-}
-
-.dovednost{
-    background-color: var(--color-primary); /* Barva pozadí bílého boxu */
-    color: var(--color-secondary); /* Barva textu v bílém boxu */
-    padding: 32px; /* Vnitřní odsazení bílého boxu */
-    display: flex; /* Využíme pro pozicování Flexbox */
-    flex-direction: column; /* Srovná nám všechny prvky pod sebe v boxu se třídou .dovednost = bíle boxy budou pod sebou */
-    align-items: center; /* Zarovná všechny prvky do středu */
-
-    /* Typografie */
-    text-align: center; /* Zarovná text do středu */
-}
-
-.dovednost img {
-    height: 40px; /* Výška smybolu v bílém boxu */
-    width: auto; /* Automatická šířka symbolu v bílém boxu */
-}
-
-@media (min-width: 1024px) {
-    .dovednosti {
-        flex-direction: row; /* Na počítači nám srovná všechny boxy vedele sebe */
-    }
+/* Tlačítka */
+.btn {
+    /* Velikost */
+    height: 50px;
+    width: 200px;
     
-    .dovednost img{
-        height: 60px; /* Výška smybolu v bílém boxu na počítači */
-    }
-}
+    /* Zarovnání */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* Odsazení od ostatních prvků */
 
-/* Talčítka */
-.button {
-    width: 240px; /* šířka tlačítka */
-    height: 60px; /* výška tlačítka */
-    display: flex; /* Pro jednoduché vycentrování textu používáme Flexvox */
-    align-items: center; /* Vycentruje text ve tlačítku */
-    justify-content: center; /* Vycentruje text ve tlačítku */
-    margin: auto; /* Zarovná tlačítko na střed */
-    border-radius: 10px; /* Zaoblené rohy tlačítka */
-    text-decoration: unset; /* Odstraní podtržení textu */
+    /* Vzhled */
+    border-radius: 10px; /* Zaoblení rohů */
+    background-color: var(--color-secondary); /* Barva pozadí */
+    color: var(--color-primary); /* Barva textu */
+    text-decoration: none; /* Odebrání podtržení */
     text-transform: uppercase; /* Převede text na velká písmena */
 }
 
 @media (min-width: 1024px) {
-    .button {
-        width: 350px; /* šířka tlačítka na počítači */
-    }
-
-    #uvod .button {
-        margin: unset; /* Odstraní odsazení tlačítka na počítači pouze por úvodní sekci */
+    .btn {
+        width: 383px; /* Tlačítko bude mít 100% šířku */
     }
 }
 
-.container.dark .button {
-    background-color: var(--color-primary); /* Barva pozadí tlačítka pokud je tlačítko v container se třídou dark */
-    color: var(--color-secondary); /* Barva textu tlačítka pokud je tlačítko v container se třídou dark */
+/* Header */
+.container--header{
+    height: 115px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    width: 100%;
 }
 
-.container.light .button {
-    background-color: var(--color-secondary); /* Barva pozadí tlačítka pokud je tlačítko v container se třídou light */
-    color: var(--color-primary);    /* Barva textu tlačítka pokud je tlačítko v container se třídou light */
+.header-logo,
+.header-menu {
+    height: 115px;
+    width: auto;
+    display: flex;
+    align-items: center;
 }
 
-/* Blog */
-
-.blogposts article{
-    display: flex; /* Využíme pro pozicování Flexbox */
-    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
-    justify-content: center; /* Zarovná obsah do středu */
-    align-items: center; /* Zarovná obsah do středu */
+.header-logo img {
+    height: 50px;
+    width: auto;
 }
 
-.blogpost {
-    display: flex; /* Využíme pro pozicování Flexbox */
-    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
-    gap: 32px; /* Mezera mezi prvky */
+.header-menu ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 10px;
+}
+@media (min-width: 1024px) {
+    .header-menu ul {
+        gap: 18px;
+    }
+}
+.header-menu a  {
+    color: var(--color-secondary);
+    text-decoration: none;
 }
 
-.perex {
-    font-weight: 600; /* Tučné písmo pro nadpisy */
-}
 
-.blogpost__image{
-    width: 100%; /* Šířka obrázku 100% */
-    height: 250px; /* Výška obrázku */
-}
-
-.blogpost__order-1 {
-    order: 2; /* Pořadí obrázku */
-}
-
-.blogpost__order-2 {
-    order: 1; /* Pořadí textu */
+/* intro */
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
 }
 
 @media (min-width: 1024px) {
-    .blogpost {
-        flex-direction: row; /* Srovná nám všechny prvky vedle sebe */
-    }
-    .blogpost--list{
-        justify-content: space-between; /* Zarovná obsah do středu a mezi sebou */
-        width: 100%; /* Šířka obsahu 100% */
+    .intro {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
     }
 
-    .blogpost--list .blogpost__content {
-        width: 100%;/* Šířka obsahu 100% */
-    }
-
-    .blogpost__order-1 {
-        order: 1; /* Pořadí obrázku na počítači */
-    }
-    
-    .blogpost__order-2 {
-        order: 2; /* Pořadí textu na počítači */
+    .intro__content p {
+        width: 50%;
     }
 }
 
-/* Full screen img */
-.fullscreen__img{
-    height: 300px;/* Výška obrázku */
-    width: 100%; /* Šířka obrázku 100% */
+.intro img {
+    width: 100%;
+    height: auto;
 }
 
-/* Oddělující čára divider */
-.divider{
-    height: 1px; /* Výška čáry */
-    width: 100%; /* Šířka čáry 100% */
-    background-color: var(--color-secondary); /* Barva čáry */
-    opacity: 50%; /* Průhlednost čáry */
-    margin: 2rem 0; /* Odsazení čáry */
+/* Benefits */
+.benefits{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.benefit-box {
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefit-box__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefit-box__inner img {
+    width: 40px;
+    height: auto;
+}
+
+.benefit-box__inner h3,
+.benefit-box__inner p {
+    text-align: center;
 }
 
 @media (min-width: 1024px) {
-    .divider{
-        margin: 3rem 0; /* Odsazení čáry na počítači */
+    .benefits {
+        flex-direction: row;
+        gap: 32px;
     }
 }
 
-/* Seznam */
-ul li {
-    padding: 10px 0;/* Odsazení seznamu */
-
+/* Footer */
+.container--footer {
+    height: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* matezajem */
-.matezajem{
-    display: flex; /* Využíme pro pozicování Flexbox */
-    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
-    align-items: center; /* Zarovná všechny prvky do středu */
-    text-align: center; /* Zarovná text do středu */
+.footer__box {
+    display: flex;
+    gap: 16px;
 }
 
-/* Fomulář */
-.formular {
-    display: flex; /* Využíme pro pozicování Flexbox */
-    align-items: center; /* Zarovná všechny prvky do středu */
+/* BLOG */
+/* ==== */
+.blog__header .subheader {
+    text-align: center;
 }
 
-.formular iframe {
-    margin: auto;/* Zarovná formulář na střed */
-    max-height: 450px; /* Maximální výška formuláře */
-}
 
-/* Kontakt */
-#kontakt {
-    display: flex; /* Využíme pro pozicování Flexbox */
-    flex-direction: column; /* Srovná nám všechny prvky pod sebe */
-    gap: 32px; /* Mezera mezi prvky */
-    align-items: center; /* Zarovná všechny prvky do středu */
+.blog__box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
-
-.kontakt__text a {
-    color: var(--color-link); /* Barva textu odkazu */
-    text-decoration: none; /* Odstraní podtržení textu */
-}
-
-.kontakt__text .subheader{
-    text-align: center; /* Zarovná text do středu */
-}
-
 @media (min-width: 1024px) {
-    #kontakt {
-        flex-direction: row; /* Srovná nám všechny prvky vedle sebe */
-        justify-content: space-between; /*  Zarovná obsah do středu a mezi sebou */
+    .blog__box {
+        flex-direction: row;
+        gap: 32px;
     }
-    .kontakt__text h1,
-    .kontakt__text .subheader{
-        text-align: left; /* Zarovná text doleva */
+    .blog__box__content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
-/* Mapa */
-.mapa {
-    width: 100%; /* Šířka mapy 100% */
+
+.blog__box__content img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;   
 }
 
-.mapa iframe {
-    width: 100%; /* Šířka mapy 100% */
+/* IMG container */
+.container__images {
+  width: 100%;
 }
 
+.container__images img {
+    width: 100%;    
+    height: 300px;
+    object-fit: cover;
+}
